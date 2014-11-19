@@ -26,4 +26,4 @@ Branch, modify, create a pull request. Be a good Gitter.
 ### Who do I talk to? ###
 
 * Andrew
-* Tim claims to know about ```brew``` but he's a notorious liar.
+* Tim claims to know about ```brew``` but he's a notorious liar, but he is dead sexy. 
