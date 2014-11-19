@@ -11,6 +11,8 @@ class Rpfits < Formula
     # ENV.deparallelize  # if your formula fails when building in parallel
     ENV['RPARCH'] = "darwin"
     ENV['PREFIX'] = "#{prefix}"
+    ENV['FFLAGS'] = "-g -O -fimplicit-none -Wall"
+    ENV['CFLAGS'] = "-arch x86_64 -g -O -Wall"
     system "make", "install" # if this fails, try separate make/make install steps
   end
 end
