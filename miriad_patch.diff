@@ -1,0 +1,35 @@
+diff --git a/inc/linux64/maxdim.h b/inc/linux64/maxdim.h
+index 971aff2..fa77944 100644
+--- a/inc/linux64/maxdim.h
++++ b/inc/linux64/maxdim.h
+@@ -11,7 +11,7 @@ C     is about 260000000; unsuccessful links produce messages about
+ C     truncated relocations, imom being the worst offender.
+ C     The default value allocates 128MiB (for normal 4-byte INTEGERs).
+       INTEGER   MAXBUF
+-      PARAMETER(MAXBUF = 32*1024*1024)
++      PARAMETER(MAXBUF = 64*1024*1024)
+ 
+ C     Maximum image axis length.  Array dimensions are typically a few
+ C     times MAXDIM (never MAXDIM**2) so MAXDIM is associated with a much
+diff --git a/inc/maxdim.h b/inc/maxdim.h
+index 1bc4b62..7def649 100644
+--- a/inc/maxdim.h
++++ b/inc/maxdim.h
+@@ -5,7 +5,7 @@ C     Size of an INTEGER array used to implement a memory heap.  This
+ C     array is the sole variable in blank COMMON in Miriad.  The default
+ C     value allocates 4MiB (for normal 4-byte INTEGERs).
+       INTEGER   MAXBUF
+-      PARAMETER(MAXBUF = 1024*1024)
++      PARAMETER(MAXBUF = 64*1024*1024)
+ 
+ C     Maximum image axis length.  Array dimensions are typically a few
+ C     times MAXDIM (never MAXDIM**2) so MAXDIM is associated with a much
+@@ -15,7 +15,7 @@ C     segvs in mfclean.  Note that, depending on the algorithm, MAXBUF
+ C     may also play an important role in determining the maximum image
+ C     size that can be handled.
+       INTEGER   MAXDIM
+-      PARAMETER(MAXDIM = 16*1024)
++      PARAMETER(MAXDIM = 32*1024)
+ 
+ C     Maximum number of antennas (ATA=64).
+       INTEGER   MAXANT
