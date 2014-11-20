@@ -51,7 +51,7 @@ class Miriad < Formula
       
       if [ -e /usr/local/miriad ]; then
         . /usr/local/miriad/MIRRC.sh
-	export PATH=$PATH:$MIRBIN
+        export PATH=$PATH:$MIRBIN
       fi
       EOS
     s
