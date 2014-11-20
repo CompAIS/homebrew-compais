@@ -17,6 +17,9 @@ class Karma < Formula
 
      # download karma-common to the temporary buildpath
      resource("common").stage { buildpath.install Dir.glob("*", File::FNM_DOTMATCH) - %w[. ..] }
-     prefix.install buildpath # copy entire buildpath to the cellar 
+     prefix.install buildpath # copy entire buildpath to the cellar
+
+     # bin dist requires this symlink. No way around it unless we compile from source.
+     ln_s "#{prefix}/karma-1.7.20/x86_64_Darwin-11.2", HOMEBREW_PREFIX/"karma"
   end
 end
