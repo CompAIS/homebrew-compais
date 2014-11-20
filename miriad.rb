@@ -22,6 +22,8 @@ class Miriad < Formula
     sha1 "d31256734daace5d6c3b8a5c92504eb218d71d53"
   end
 
+  patch :DATA # apply the embedded patch after __END__
+
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
     # install miriad-common into the buildpath.
