@@ -12,7 +12,7 @@ class Miriad < Formula
   # depends_on "cmake" => :build
   depends_on "rpfits"
   depends_on "pgplot"
-  depends_on "homebrew/science/wcslib"
+  depends_on "homebrew/science/wcslib" => ['with-pgsbox', 'with-fortran']
   depends_on "libpng" => :recommended
   depends_on "readline" => :recommended
   depends_on :x11 # if your formula requires any X11/XQuartz components
