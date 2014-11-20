@@ -20,7 +20,7 @@ class Karma < Formula
      ENV.deparallelize  # if your formula fails when building in parallel
      prefix.install Dir["*"]
      prefix.install resource('common')
-     prefix.install ".karmarc"
+     #prefix.install ".karmarc"
      ##prefix.install Dir.glob("x86_64_Darwin-11.2/.[a-z]*", File::FNM_DOTMATCH)
   end
 end
