@@ -1,9 +1,5 @@
 require "formula"
 
-# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-#                /usr/local/Library/Contributions/example-formula.rb
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Karma < Formula
   homepage "http://www.atnf.csiro.au/computing/software/karma/"
   url "ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.20-x86_64_Darwin-11.2.tar.bz2"
@@ -18,9 +14,9 @@ class Karma < Formula
 
   def install
      ENV.deparallelize  # if your formula fails when building in parallel
-     prefix.install Dir["*"]
-     prefix.install resource('common')
-     prefix.install ".karmarc"
-     ##prefix.install Dir.glob("x86_64_Darwin-11.2/.[a-z]*", File::FNM_DOTMATCH)
+
+     # download karma-common to the temporary buildpath
+     resource("common").stage { buildpath.install Dir.glob("*", File::FNM_DOTMATCH) - %w[. ..] }
+     prefix.install buildpath # copy entire buildpath to the cellar
   end
 end
