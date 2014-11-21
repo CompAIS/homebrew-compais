@@ -20,6 +20,22 @@ class Karma < Formula
      prefix.install buildpath # copy entire buildpath to the cellar
 
      # bin dist requires this symlink. No way around it unless we compile from source.
-     ln_s "#{prefix}/karma-1.7.20/x86_64_Darwin-11.2", HOMEBREW_PREFIX/"karma"
+     ln_s "#{prefix}/karma-1.7.20/x86_64_Darwin-11.2", "/usr/local/karma"
+  end
+
+  def caveats
+    s = <<-EOS.undent
+      Karma will not work unless there is a symlink to the installation at /usr/local/karma.
+      This has been created for you, however it will not be deleted when you remove Karma.
+      You will have to delete the link yourself if you ever delete Karma.
+      
+      To use Karma from any directory, it needs to be added to your path.
+      Add the following to the .profile file located in your home directory. If it doesn't exist, create it.
+      
+      if [ -e /usr/local/karma/.karmarc ]; then
+        . /usr/local/karma/.karmarc
+      fi
+      EOS
+    s
   end
 end
