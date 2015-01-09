@@ -4,20 +4,13 @@ This repository is intended to be a tap for ```brew```. It is still under develo
 
 ### How do I get set up? ###
 
-Since ```brew``` only supports taps hosted on GitHub, you will need the external ```brew``` command, ```any-tap```. Tap [telemachus/anytap](https://github.com/telemachus/homebrew-anytap) and install ```any-tap```:
+Tap this repository in ```brew``` by entering the following
 
 ```
-$ brew tap telemachus/anytap
-$ brew install brew-any-tap
+$ brew tap compais/homebrew-compais
 ```
 
-Now you can tap this repository
-
-```
-$ brew any-tap compais compais https://bitbucket.org/compais/homebrew-compais
-```
-
-```brew``` will now have access to all of the formulae hosted in this repository.
+You may need to enter your GitHub account details. Once complete, ```brew``` will have access to all of the formulae hosted in this repository.
 
 ### Contribution guidelines ###
 
