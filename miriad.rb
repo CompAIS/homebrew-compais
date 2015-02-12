@@ -19,7 +19,7 @@ class Miriad < Formula
   
   resource "common_code" do
     url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-common.tar.bz2"
-    sha1 "534af4b43cbf10dfe79b165e0a15e88d0c847863"
+    sha1 "d31256734daace5d6c3b8a5c92504eb218d71d53"
   end
 
   patch :DATA # apply the embedded patch after __END__
