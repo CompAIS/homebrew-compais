@@ -7,7 +7,7 @@ require "formula"
 class Miriad < Formula
   homepage "http://www.atnf.csiro.au/computing/software/miriad/"
   url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-code.tar.bz2"
-  sha1 "5b1308b853c16f13ddc31ec4e14bc7093d2066a7"
+  sha1 "17c9cad8412db1821fc0cef34481867e6a46c55c"
 
   # depends_on "cmake" => :build
   depends_on "rpfits"
