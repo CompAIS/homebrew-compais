@@ -7,7 +7,7 @@ require "formula"
 class Miriad < Formula
   homepage "http://www.atnf.csiro.au/computing/software/miriad/"
   url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-code.tar.bz2"
-  sha1 "17c9cad8412db1821fc0cef34481867e6a46c55c"
+  sha1 "6c46d4364a346036ec0839f4cce281a05e38e87b"
 
   # depends_on "cmake" => :build
   depends_on "rpfits"
@@ -19,7 +19,7 @@ class Miriad < Formula
   
   resource "common_code" do
     url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-common.tar.bz2"
-    sha1 "d31256734daace5d6c3b8a5c92504eb218d71d53"
+    sha1 "ff867bd9cd8307680cadb4952359bef6572ed705"
   end
 
   patch :DATA # apply the embedded patch after __END__
