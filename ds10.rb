@@ -4,7 +4,7 @@ class Ds10 < Formula
   homepage "http://spacescience.uws.edu.au/~andrew"
   url "http://spacescience.uws.edu.au/~andrew/ds10.7.3.2.tar.gz"
   version "7.3.2"
-  sha1 "dc3b9d115fe68bcae1092b888060c11d516d7d67"
+  sha1 "ce3599bb0d21394c7c9e869478b1f298882b4d5a"
 
   depends_on :macos => :lion
   depends_on :x11
