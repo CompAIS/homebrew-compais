@@ -10,13 +10,13 @@ class Miriad < Formula
   #sha1 "6c46d4364a346036ec0839f4cce281a05e38e87b"
 
   # depends_on "cmake" => :build
-  depends_on "rpfits"
+  depends_on "compais/compais/rpfits"
   depends_on "pgplot"
   depends_on "homebrew/science/wcslib" => ['with-pgsbox', 'with-fortran']
   depends_on "libpng" => :recommended
   depends_on "readline" => :recommended
   depends_on :x11 # if your formula requires any X11/XQuartz components
-  
+
   resource "common_code" do
     url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-common.tar.bz2"
     #sha1 "ff867bd9cd8307680cadb4952359bef6572ed705"
@@ -39,16 +39,19 @@ class Miriad < Formula
                           "--disable-silent-rules"
     #system "cmake", ".", *std_cmake_args
     system "make", "MIR=#{buildpath}"
-    inreplace "MIRRC.sh", "#{buildpath}", "#{prefix}/miriad"
-    prefix.install Dir["#{buildpath}"]
-    HOMEBREW_PREFIX.install_symlink "#{prefix}/miriad"
+    inreplace "MIRRC.sh", "#{buildpath}", "#{prefix}"
+    prefix.install Dir["*"]
+    HOMEBREW_PREFIX.install_symlink "#{prefix}"
   end
 
   def caveats
     s = <<-EOS.undent
+      This script quite annoyingly places a symlink named "code" in your Homebrew prefix directory
+      which points to MIRIAD. You should rename this to "miriad".
+
       To use MIRIAD from any directory, it needs to be added to your path.
       Add the following to the .profile file located in your home directory. If it doesn't exist, create it.
-      
+
       if [ -e /usr/local/miriad ]; then
         . /usr/local/miriad/MIRRC.sh
         export PATH=$PATH:$MIRBIN
@@ -68,7 +71,7 @@ index 971aff2..fa77944 100644
        INTEGER   MAXBUF
 -      PARAMETER(MAXBUF = 32*1024*1024)
 +      PARAMETER(MAXBUF = 64*1024*1024)
- 
+
  C     Maximum image axis length.  Array dimensions are typically a few
  C     times MAXDIM (never MAXDIM**2) so MAXDIM is associated with a much
 diff --git a/inc/maxdim.h b/inc/maxdim.h
@@ -81,7 +84,7 @@ index 1bc4b62..7def649 100644
        INTEGER   MAXBUF
 -      PARAMETER(MAXBUF = 1024*1024)
 +      PARAMETER(MAXBUF = 64*1024*1024)
- 
+
  C     Maximum image axis length.  Array dimensions are typically a few
  C     times MAXDIM (never MAXDIM**2) so MAXDIM is associated with a much
 @@ -15,7 +15,7 @@ C     segvs in mfclean.  Note that, depending on the algorithm, MAXBUF
@@ -90,6 +93,6 @@ index 1bc4b62..7def649 100644
        INTEGER   MAXDIM
 -      PARAMETER(MAXDIM = 16*1024)
 +      PARAMETER(MAXDIM = 32*1024)
- 
+
  C     Maximum number of antennas (ATA=64).
        INTEGER   MAXANT
