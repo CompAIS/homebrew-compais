@@ -2,7 +2,7 @@ require "formula"
 
 class Karma < Formula
   homepage 'http://www.atnf.csiro.au/computing/software/karma/'
-  url 'ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.20-common.tar.bz2'
+  url 'ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.25-common.tar.bz2'
   sha1 'f549ab0c0103800e6883c71d1c2cecefce242e45'
   
   resource 'darwin' do
