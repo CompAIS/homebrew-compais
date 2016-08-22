@@ -2,12 +2,12 @@ require "formula"
 
 class Karma < Formula
   homepage 'http://www.atnf.csiro.au/computing/software/karma/'
-  url 'ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.25-common.tar.bz2'
-  sha1 'c0f8b0b07ed6ab4e9705ccc782942dd05eb73a50'
+  url 'ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.20-common.tgz'
+  sha256 '001a7de57f00da5423b8e59b06d16405e99ed4dd1c9298783007e9610a91f5a2'
 
   resource 'darwin' do
-    url 'ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.20-x86_64_Darwin-11.2.tar.bz2'
-    sha1 'e78aac1214cb9dcd7887f3fa19a279d05d3c5f21'
+    url 'ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.20-x86_64_Darwin-15.5.tgz'
+    sha256 'e7a5bcbad484277537e1ef081baa387842319e100bab6ec2dc1cfa74291bc1eb'
   end
 
   depends_on :x11 # if your formula requires any X11/XQuartz components
@@ -20,7 +20,7 @@ class Karma < Formula
      # download karma-darwin to the temporary buildpath
      resource("darwin").stage { buildpath.install Dir.glob("*", File::FNM_DOTMATCH) - %w[. ..] }
      prefix.install buildpath # copy entire buildpath to the cellar
-     ln_s "#{prefix}/karma-1.7.20/x86_64_Darwin-11.2", HOMEBREW_PREFIX/"karma"
+     ln_s "#{prefix}/karma-1.7.20/x86_64_Darwin-15.5", HOMEBREW_PREFIX/"karma"
   end
 
   def caveats
