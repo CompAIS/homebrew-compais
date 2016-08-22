@@ -19,8 +19,14 @@ class Karma < Formula
 
      # download karma-darwin to the temporary buildpath
      resource("darwin").stage { buildpath.install Dir.glob("*", File::FNM_DOTMATCH) - %w[. ..] }
-     prefix.install buildpath # copy entire buildpath to the cellar
-     ln_s "#{prefix}/karma-1.7.20/x86_64_Darwin-15.5", HOMEBREW_PREFIX/"karma"
+     prefix.install Dir.glob("*", File::FNM_DOTMATCH) - %w[. ..]
+
+     # symlink bin and lib into KARMABASE
+     prefix.install_symlink "x86_64_Darwin-15.5/bin"
+     prefix.install_symlink "x86_64_Darwin-15.5/lib"
+
+     # create the karma symlink into /usr/local
+     ln_s "#{prefix}", HOMEBREW_PREFIX/"karma"
   end
 
   def caveats
