@@ -20,4 +20,8 @@ Branch, modify, create a pull request. Be a good Gitter.
 
 * Andrew
 * Tim claims to know about ```brew``` but he's a notorious liar, but he is dead sexy.
-* Jordan claims to know nothing about ```brew``` except how to use it to make everything work. He even tried to run ```$ sudo brew install``` one time... :S
+* Jordan claims to know nothing about ```brew``` except how to use it to make everything work. One time he even tried to run
+
+```
+$ sudo brew install
+```
