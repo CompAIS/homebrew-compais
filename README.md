@@ -19,4 +19,9 @@ Branch, modify, create a pull request. Be a good Gitter.
 ### Who do I talk to? ###
 
 * Andrew
-* Tim claims to know about ```brew``` but he's a notorious liar, but he is dead sexy. 
+* Tim claims to know about ```brew``` but he's a notorious liar, but he is dead sexy.
+* Jordan claims to know nothing about ```brew``` except how to use it to make everything work. One time he even tried to run
+
+```
+$ sudo brew install
+```
