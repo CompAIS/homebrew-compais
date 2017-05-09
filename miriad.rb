@@ -7,19 +7,19 @@ require "formula"
 class Miriad < Formula
   homepage "http://www.atnf.csiro.au/computing/software/miriad/"
   url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-code.tar.bz2"
-  #sha1 "6c46d4364a346036ec0839f4cce281a05e38e87b"
+  sha256 "3450e52b14e866ca5efc58017c0a6ac4cc5699f4e2caa3cca95d00f5ce9d1f82"
 
   # depends_on "cmake" => :build
   depends_on "compais/compais/rpfits"
   depends_on "pgplot"
-  depends_on "homebrew/science/wcslib" => ['with-pgsbox', 'with-fortran']
+  depends_on "homebrew/science/wcslib" => ['with-pgplot', 'with-fortran']
   depends_on "libpng" => :recommended
   depends_on "readline" => :recommended
   depends_on :x11 # if your formula requires any X11/XQuartz components
 
   resource "common_code" do
     url "ftp://ftp.atnf.csiro.au/pub/software/miriad/miriad-common.tar.bz2"
-    #sha1 "ff867bd9cd8307680cadb4952359bef6572ed705"
+    sha256 "33893fa2dfd059dc4a0459ba0d2f385322cd9baf08bbb9f77ed61da33945f657"
   end
 
   patch :DATA # apply the embedded patch after __END__
@@ -62,7 +62,7 @@ class Miriad < Formula
 end
 __END__
 diff --git a/inc/linux64/maxdim.h b/inc/linux64/maxdim.h
-index 971aff2..fa77944 100644
+index 861172a..5610c87 100644
 --- a/inc/linux64/maxdim.h
 +++ b/inc/linux64/maxdim.h
 @@ -11,7 +11,7 @@ C     is about 260000000; unsuccessful links produce messages about
@@ -75,24 +75,15 @@ index 971aff2..fa77944 100644
  C     Maximum image axis length.  Array dimensions are typically a few
  C     times MAXDIM (never MAXDIM**2) so MAXDIM is associated with a much
 diff --git a/inc/maxdim.h b/inc/maxdim.h
-index 1bc4b62..7def649 100644
+index ad1471f..990e941 100644
 --- a/inc/maxdim.h
 +++ b/inc/maxdim.h
-@@ -5,7 +5,7 @@ C     Size of an INTEGER array used to implement a memory heap.  This
- C     array is the sole variable in blank COMMON in Miriad.  The default
- C     value allocates 4MiB (for normal 4-byte INTEGERs).
+@@ -11,7 +11,7 @@ C     is about 260000000; unsuccessful links produce messages about
+ C     truncated relocations, imom being the worst offender.
+ C     The default value allocates 128MiB (for normal 4-byte INTEGERs).
        INTEGER   MAXBUF
--      PARAMETER(MAXBUF = 1024*1024)
+-      PARAMETER(MAXBUF = 32*1024*1024)
 +      PARAMETER(MAXBUF = 64*1024*1024)
 
  C     Maximum image axis length.  Array dimensions are typically a few
  C     times MAXDIM (never MAXDIM**2) so MAXDIM is associated with a much
-@@ -15,7 +15,7 @@ C     segvs in mfclean.  Note that, depending on the algorithm, MAXBUF
- C     may also play an important role in determining the maximum image
- C     size that can be handled.
-       INTEGER   MAXDIM
--      PARAMETER(MAXDIM = 16*1024)
-+      PARAMETER(MAXDIM = 32*1024)
-
- C     Maximum number of antennas (ATA=64).
-       INTEGER   MAXANT
